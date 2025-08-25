@@ -1,9 +1,9 @@
 body,html{
 	height: 100%;
 	margin: 0;
-	background: rgb(44, 47, 59);
-   background: -webkit-linear-gradient(to right, rgb(40, 59, 34), rgb(54, 60, 70), rgb(32, 32, 43));
-	background: linear-gradient(to right, rgb(38, 51, 61), rgb(50, 55, 65), rgb(33, 33, 78));
+	background: #4BAAC8;
+    background: -webkit-linear-gradient(to right, #4BAAC8, #4BAAC8, #4BAAC8);
+	background: linear-gradient(to right, #4BAAC8, #4BAAC8, #4BAAC8);
 }
 
 .chat{
@@ -13,7 +13,7 @@ body,html{
 .card{
 	height: 500px;
 	border-radius: 15px !important;
-	background-color: rgba(0,0,0,0.4) !important;
+	background-color: rgba(0,0,0,0.5) !important;
 }
 .contacts_body{
 	padding:  0.75rem 0 !important;
@@ -36,7 +36,7 @@ border-radius: 0 0 15px 15px !important;
 }
 .search{
 	border-radius: 15px 0 0 15px !important;
-	background-color: rgba(0,0,0,0.3) !important;
+	background-color: rgba(0,0,0,0.4) !important;
 	border:0 !important;
 	color:white !important;
 }
@@ -220,4 +220,156 @@ border-radius: 0 0 15px 15px !important;
 	.contacts_card{
 	margin-bottom: 15px !important;
 }
+}
+
+.navbar {
+	background-color: #236576;
+	padding: 15px 20px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+  }
+  
+  .nav-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 1200px;
+	margin: 0 auto;
+  }
+  
+  .nav-logo {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #f3f3f3;
+	margin-left: -730;
+  }
+  
+  .nav-menu {
+	list-style: none;
+	display: flex;
+	gap: 20px;
+	margin: 0;
+	padding: 0;
+	margin-right: -730;
+  }
+  
+  .nav-item {
+	text-transform: uppercase;
+  }
+  
+  .nav-link {
+	text-decoration: none;
+	color: #f3f3f3;
+	font-size: 1rem;
+	padding: 5px 10px;
+	transition: background-color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+	background-color: #297db1;
+	border-radius: 5px;
+  }
+
+  /* Footer */
+footer {
+	text-align: center;
+	padding: 5px;
+	background-color: #236576;
+	color: #fff;
+	margin-top: 400px;
+  }
+  
+  footer h2 {
+	margin-bottom: 5px;
+  }
+  
+  footer p {
+	font-size: 1rem;
+  }
+
+/* :: 7.0 About Us Area CSS */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.medica-about-content {
+	  margin-bottom: 100px; } }
+  @media only screen and (max-width: 767px) {
+	.medica-about-content {
+	  margin-bottom: 100px; } }
+  .medica-about-content h2 {
+	font-size: 44px;
+	margin-bottom: 30px; }
+	@media only screen and (max-width: 767px) {
+	  .medica-about-content h2 {
+		font-size: 30px; } }
+
+/* Features Area Styles */
+.medilife-features-area .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.medilife-features-area .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.medilife-features-area .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.medilife-features-area .col-lg-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.features-content {
+    text-align: justify;
+}
+
+.features-content h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #01070d;
+    margin-bottom: 20px;
+}
+
+.features-content p {
+    font-size: 16px;
+    color: #011010;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.features-content p a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.features-content p a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .medilife-features-area .col-lg-6 {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    .features-content h2 {
+        font-size: 28px;
+    }
+}
+
+.image-section {
+	flex: 1; /* Less space for the image */
+	text-align: right; /* Aligns the image on the right side */
+}
+
+.image-section img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 10px;
 }

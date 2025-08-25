@@ -1,0 +1,150 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chatbot</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}"/>
+	</head>
+	
+	
+	<body>
+        <nav class="navbar">
+            <div class="nav-container">
+              <div class="nav-logo">SymptomSense</div>
+              <ul class="nav-menu">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+              </ul>
+            </div>
+          </nav>
+
+    <!-- ***** Features Area Start ***** -->
+    <div class="medilife-features-area section-padding-100">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg-6">
+                    <div class="features-content">
+                        <h2>WHY DO WE NEED AN AI BASED SYMPTOM CHECKER?</h2>
+                        <p>An AI-based symptom checker is valuable because it addresses key gaps in traditional healthcare and provides several benefits:<br>
+                            1. Accessibility:
+                            24/7 Availability Offers immediate assistance regardless of time or location.
+                            <br>
+                            2. Early Detection and Awareness:
+                            Helps users identify potential health issues early by analyzing symptoms and patterns. Provides guidance on whether a condition requires urgent care or can be managed at home.
+                            <br>
+                            3. Efficiency:
+                            Saves time by quickly narrowing down possible causes for symptoms. Reduces unnecessary visits to healthcare facilities, easing the burden on professionals.
+                            <br>
+                            4. Personalization:
+                            Tailors suggestions based on individual factors like age, gender, medical history, and lifestyle.
+                            <br>
+                            5. Educational:
+                            Empowers users with reliable health-related knowledge, fostering better health literacy.
+                            <br>
+                            6. Scalability:
+                            Can serve millions of users simultaneously without overburdening the system.
+                            <br>
+                            7. Cost-Effective:
+                            Provides a free or affordable alternative for those who can't immediately access or afford medical consultations.
+                            <br>
+                            In essence, an AI-based symptom checker bridges the gap between users and healthcare, ensuring informed decisions and timely care.</p><br>
+                        <h2>WHAT IS SYMPTOMSENSE?</h2>
+                        <p>SymptomSense is an AI-powered healthcare platform designed to help users understand their symptoms and gain preliminary insights into potential health conditions. By leveraging Large Language Models (LLMs) and advanced algorithms, it offers:
+                            <br>
+                            1. Symptom Checker: Users can input their symptoms, and the platform provides possible causes or health insights.
+                            <br>
+                            2. Chatbot: An interactive, AI-driven assistant to guide users through symptom analysis, answer health-related questions, and suggest next steps.
+                            <br>
+                            3. Healthcare Resources: Information on conditions, treatments, and when to seek professional care.
+                            <br>
+                            4. User-Friendly Design: Accessible and intuitive interface for all age groups.
+                            <br>
+                            SymptomSense isn't a replacement for professional medical advice but acts as a first step in helping users make informed health decisions.</p><br><br>
+                        <h2>HOW CAN SYMPTOMSENSE HELP?</h2>
+                        <p>SymptomSense can help in several impactful ways, offering both immediate assistance and long-term health benefits:<br>
+                            1. Immediate Health Insights: 
+                            Helps users understand potential causes of their symptoms quickly and accurately.
+                            Identifies whether symptoms are mild, moderate, or require urgent medical attention.<br>
+                            2. Guidance on Next Steps: 
+                            Provides actionable recommendations, such as self-care tips, lifestyle adjustments, or seeking professional medical help.
+                            Directs users to nearby healthcare facilities or telemedicine services if needed.<br>
+                            3. Empowers Users: 
+                            Enhances health literacy by explaining medical terms and conditions in an easy-to-understand way.
+                            Reduces fear and anxiety by offering preliminary insights and a sense of control over health concerns.<br>
+                            4. Saves Time and Resources: 
+                            Reduces unnecessary doctor visits for minor ailments by offering guidance on self-management.
+                            Streamlines healthcare access for those who need it most by prioritizing urgent cases.<br>
+                            5. Accessibility: 
+                            Acts as a 24/7 virtual health assistant, accessible from anywhere.
+                            Especially beneficial for people in remote areas or with limited access to healthcare.<br>
+                            6. Personalized Assistance: 
+                            Adapts recommendations based on age, gender, medical history, and lifestyle, ensuring relevance.
+                            Learns from user feedback to improve the accuracy of future interactions.<br>
+                            7. Preventive Healthcare: 
+                            Encourages early detection and timely intervention for potentially serious conditions.
+                            Offers tips for healthier living to prevent common illnesses.<br>
+                            8. Support for Healthcare Providers: 
+                            Eases the workload of medical professionals by pre-screening symptoms and guiding users appropriately.
+                            Can serve as a valuable tool for triage in emergency situations.<br>
+                            By bridging the gap between users and healthcare, SymptomSense helps improve health outcomes, saves time, and provides peace of mind.</p><br><br>
+                        <h2>HOW DOES THE SYMPTOMSENSE WORK?</h2>
+                        <p>SymptomSense works by combining advanced AI technologies, medical knowledge, and user-friendly interfaces to provide accurate and efficient symptom analysis.<br>
+                            1. User Input: 
+                            The user describes their symptoms through text or voice interaction.
+                            Additional information such as age, gender, medical history, or lifestyle factors may also be requested for better accuracy.<br>
+                            2. Data Processing: 
+                            The system processes the input using Natural Language Processing (NLP) to understand and interpret user descriptions.
+                            Keywords and patterns are extracted to identify relevant medical terms and conditions.<br>
+                            3. Symptom Analysis: 
+                            The AI compares the input with a vast, pre-trained medical database.
+                            It uses machine learning algorithms and decision trees to match symptoms with potential conditions.<br>
+                            4. Risk Assessment: 
+                            The system evaluates the severity of symptoms and classifies conditions into categories like minor, moderate, or urgent.<br>
+                            5. Output: 
+                            A list of potential causes or health insights is provided, often ranked by likelihood.
+                            Suggestions include self-care tips, recommendations to consult a healthcare provider, or urgent action if necessary.<br>
+                            6. Interactive Chatbot Assistance: 
+                            The chatbot guides the user, clarifying details, providing explanations, and answering questions.
+                            It adapts the conversation dynamically based on user responses.<br>
+                            7. Learning and Improvement: 
+                            Feedback loops allow the system to continuously improve its accuracy and relevance by learning from user interactions and outcomes.</p><br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Features Area End ***** -->
+
+   
+    <!-- ***** Footer Area Start ***** -->
+   <footer class="footer-area section-padding-100">
+        <!-- Main Footer Area -->
+        <!-- Bottom Footer Area -->
+        <div class="bottom-footer-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="bottom-footer-content">
+                            
+                            <div class="copywrite-text">
+                                <p>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | SymptomSense 
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+
+    </body>
+</html>

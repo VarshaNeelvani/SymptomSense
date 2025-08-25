@@ -1,31 +1,34 @@
 from flask import Flask, render_template, jsonify, request
 from src.helper import download_hugging_face_embeddings
-from langchain_pinecone import PineconeVectorStore
+from langchain_pinecone import Pinecone
 from langchain_openai import OpenAI
+from groq import Groq
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_huggingface import HuggingFaceEmbeddings
 from dotenv import load_dotenv
 from src.prompt import *
 import os
+from langchain_groq import ChatGroq 
 
 app = Flask(__name__)
 
 load_dotenv()
 
 PINECONE_API_KEY=os.environ.get('PINECONE_API_KEY')
-OPENAI_API_KEY=os.environ.get('OPENAI_API_KEY')
+GROQ_API_KEY=os.environ.get('GROQ_API_KEY')
 
 os.environ["PINECONE_API_KEY"] = PINECONE_API_KEY
-os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+os.environ["GROQ_API_KEY"] = GROQ_API_KEY
 
 embeddings = download_hugging_face_embeddings()
 
 
-index_name = "medicalbot"
+index_name = "symptomsense1"
 
 # Embed each chunk and upsert the embeddings into your Pinecone index.
-docsearch = PineconeVectorStore.from_existing_index(
+docsearch = Pinecone.from_existing_index(
     index_name=index_name,
     embedding=embeddings
 )
@@ -33,7 +36,7 @@ docsearch = PineconeVectorStore.from_existing_index(
 retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":3})
 
 
-llm = OpenAI(temperature=0.4, max_tokens=500)
+llm = ChatGroq(model="llama3-8b-8192", temperature=0.4, max_tokens=500)
 prompt = ChatPromptTemplate.from_messages(
     [
         ("system", system_prompt),
@@ -47,7 +50,11 @@ rag_chain = create_retrieval_chain(retriever, question_answer_chain)
 
 @app.route("/")
 def index():
-    return render_template('chat.html')
+    return render_template('chat2.html')
+
+@app.route('/about')
+def about():
+    return render_template('about-us.html')
 
 
 @app.route("/get", methods=["GET", "POST"])
