@@ -10,15 +10,15 @@ from dotenv import load_dotenv
 from src.prompt import *
 import os
 from langchain_groq import ChatGroq 
-import pinecone
-from langchain_community.vectorstores import Pinecone as LangchainPinecone
+from pinecone import Pinecone
+from langchain_pinecone import PineconeVectorStore
 
 app = Flask(__name__)
 
 load_dotenv()
 
 PINECONE_API_KEY = os.environ.get('PINECONE_API_KEY')
-PINECONE_ENV = os.environ.get('PINECONE_ENV')  # ✅ Add your Pinecone environment here
+#PINECONE_ENV = os.environ.get('PINECONE_ENV')  
 GROQ_API_KEY = os.environ.get('GROQ_API_KEY')
 
 os.environ["PINECONE_API_KEY"] = PINECONE_API_KEY
@@ -28,22 +28,19 @@ embeddings = download_hugging_face_embeddings()
 
 index_name = "symptomsense1"
 
-# ✅ Initialize Pinecone (old client style)
-pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_ENV)
+pc = Pinecone(api_key=PINECONE_API_KEY)
 
-# ✅ Get the index
-index = pinecone.Index(index_name)
+index = pc.Index(index_name)
 
-# ✅ Use LangChain’s Pinecone wrapper
-docsearch = LangchainPinecone(
+docsearch = PineconeVectorStore(
     index=index,
     embedding=embeddings,
-    text_key="text"   # make sure your docs use "text" field
+    text_key="text"   
 )
 
 retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k": 3})
 
-llm = ChatGroq(model="llama3-8b-8192", temperature=0.4, max_tokens=500)
+llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0.4, max_tokens=500)
 
 prompt = ChatPromptTemplate.from_messages(
     [
