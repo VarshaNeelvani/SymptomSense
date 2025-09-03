@@ -1,5 +1,4 @@
 from flask import Flask, render_template, jsonify, request
-from src.helper import download_hugging_face_embeddings
 from langchain_openai import OpenAI
 from groq import Groq
 from langchain.chains import create_retrieval_chain
@@ -24,7 +23,7 @@ GROQ_API_KEY = os.environ.get('GROQ_API_KEY')
 os.environ["PINECONE_API_KEY"] = PINECONE_API_KEY
 os.environ["GROQ_API_KEY"] = GROQ_API_KEY
 
-embeddings = download_hugging_face_embeddings()
+embeddings = HuggingFaceEmbeddings()
 
 index_name = "symptomsense1"
 
